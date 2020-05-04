@@ -44,7 +44,7 @@ namespace Controllers
             var hackParser = JsonConvert.DeserializeObject<Dictionary<string, List<ProvinceCaseDataImportModel>>>(importData.ToString());
 
             _provinceImporter.Import(hackParser["importData"]);
-            
+
             return StatusCode(200);
         }
 
@@ -52,7 +52,7 @@ namespace Controllers
         [Route("regiondata")]
         public ActionResult<HttpResponseMessage> ImportRegionData(object importData)
         {
-            var hackParser = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, List<RegionCaseDataModel>>>(importData.ToString());
+            var hackParser = JsonConvert.DeserializeObject<Dictionary<string, List<RegionCaseDataModel>>>(importData.ToString());
 
             _regionImporter.Import(hackParser["importData"]);
 
@@ -63,7 +63,7 @@ namespace Controllers
         [Route("patientdata")]
         public ActionResult ImportPatientData(object importData)
         {
-            var hackParser = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, List<PatientModel>>>(importData.ToString());
+            var hackParser = JsonConvert.DeserializeObject<Dictionary<string, List<PatientModel>>>(importData.ToString());
             _patientImporter.Import(hackParser["importData"]);
            
 
@@ -74,7 +74,7 @@ namespace Controllers
         [Route("caseupdatedata")]
         public ActionResult ImportCaseUpdateData(object importData)
         {
-            var hackParser = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, List<CaseUpdateModel>>>(importData.ToString());
+            var hackParser = JsonConvert.DeserializeObject<Dictionary<string, List<CaseUpdateModel>>>(importData.ToString());
 
             _caseUpdateImporter.Import(hackParser["importData"]);
 

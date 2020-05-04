@@ -24,16 +24,16 @@ namespace Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<CaseUpdateModel>> Get([FromQuery] RegionCaseDataFilter filter)
+        public ActionResult<List<CaseUpdateModel>> Get([FromQuery] CaseUpdateFilter filter)
         {
             return _context.CaseUpdates.Where(x=> 
-                true
-                // (String.IsNullOrEmpty(filter.Province) || x.Province.ToUpper().Contains(filter.Province.ToUpper()))
+                (String.IsNullOrEmpty(filter.Country) || x.Country.ToUpper().Contains(filter.Country.ToUpper()))
+                && (String.IsNullOrEmpty(filter.Location) || x.Location.ToUpper().Contains(filter.Location.ToUpper()))
             ).OrderBy(x => x.Country)
             .ToList();
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public ActionResult<CaseUpdateModel> GetById(int id)
         {
             return _context.CaseUpdates.FirstOrDefault(c => c.Id == id);
