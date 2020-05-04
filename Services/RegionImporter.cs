@@ -14,9 +14,9 @@ namespace Services
             _context = context;
         }
         
-        public void Import(List<RegionCaseData> regionImportData)
+        public void Import(List<RegionCaseDataModel> regionImportData)
         {
-            foreach (RegionCaseData regionData in regionImportData) {
+            foreach (RegionCaseDataModel regionData in regionImportData) {
                 _context.RegionData.Add(regionData);
             }
             _context.SaveChanges();

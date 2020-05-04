@@ -14,9 +14,9 @@ namespace Services
             _context = context;
         }
         
-        public void Import(List<Patient> patientImport)
+        public void Import(List<PatientModel> patientImport)
         {
-            foreach (Patient patientData in patientImport) {
+            foreach (PatientModel patientData in patientImport) {
                 _context.Patients.Add(patientData);
             }
             _context.SaveChanges();

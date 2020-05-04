@@ -71,47 +71,5 @@ namespace API
                 endpoints.MapControllers();
             });
         }
-
-        // #region Private members
-        // private ConfigureAuthentication(IServiceCollection services) {
-        //     services.AddAuthentication(options =>
-        //         {
-        //             options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        //             options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        //             options.DefaultChallengeScheme = "LynxTrial";
-        //         })
-        //         .AddCookie()
-        //         .AddOAuth("LynxTrial", options =>
-        //         {
-        //             options.ClientId = Configuration["LynxTrial:ClientId"];
-        //             options.ClientSecret = Configuration["LynxTrial:ClientSecret"];
-        //             options.CallbackPath = new PathString("/signin-lynxtrial");
-
-        //             options.AuthorizationEndpoint = "localhost:3000/login/oauth/authorize";
-        //             options.TokenEndpoint = "localhost:3000/login/oauth/access_token";
-        //             options.UserInformationEndpoint = "https://localhost:5001/api/user";
-
-        //             options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id");
-        //             options.ClaimActions.MapJsonKey(ClaimTypes.Name, "username");
-
-        //             options.Events = new OAuthEvents
-        //             {
-        //                 OnCreatingTicket = async context =>
-        //                 {
-        //                     var request = new HttpRequestMessage(HttpMethod.Get, context.Options.UserInformationEndpoint);
-        //                     request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        //                     request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", context.AccessToken);
-
-        //                     var response = await context.Backchannel.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, context.HttpContext.RequestAborted);
-        //                     response.EnsureSuccessStatusCode();
-
-        //                     var user = JObject.Parse(await response.Content.ReadAsStringAsync());
-
-        //                     context.RunClaimActions(user);
-        //                 }
-        //             };
-        //         });
-        // }
-        // #endregion
     }
 }

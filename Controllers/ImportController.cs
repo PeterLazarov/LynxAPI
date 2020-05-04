@@ -9,6 +9,8 @@ using Services;
 using Microsoft.AspNetCore.Cors;
 using System.Text.Json;
 using System.Net.Http;
+using System;
+using Newtonsoft.Json;
 
 namespace Controllers
 {
@@ -36,13 +38,13 @@ namespace Controllers
         }
 
         [HttpPost]
-        [Route("provicedata")]
-        public ActionResult ImportProvinceData(ProvinceCaseData[] importData)
+        [Route("provincedata")]
+        public ActionResult ImportProvinceData(object importData)
         {
-            var hackParser = JsonSerializer.Deserialize<Dictionary<string, List<ProvinceCaseData>>>(importData.ToString());
+            var hackParser = JsonConvert.DeserializeObject<Dictionary<string, List<ProvinceCaseDataImportModel>>>(importData.ToString());
 
             _provinceImporter.Import(hackParser["importData"]);
-
+            
             return StatusCode(200);
         }
 
@@ -50,7 +52,7 @@ namespace Controllers
         [Route("regiondata")]
         public ActionResult<HttpResponseMessage> ImportRegionData(object importData)
         {
-            var hackParser = JsonSerializer.Deserialize<Dictionary<string, List<RegionCaseData>>>(importData.ToString());
+            var hackParser = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, List<RegionCaseDataModel>>>(importData.ToString());
 
             _regionImporter.Import(hackParser["importData"]);
 
@@ -59,20 +61,20 @@ namespace Controllers
 
         [HttpPost]
         [Route("patientdata")]
-        public ActionResult ImportPatientData(Patient[] importData)
+        public ActionResult ImportPatientData(object importData)
         {
-            var hackParser = JsonSerializer.Deserialize<Dictionary<string, List<Patient>>>(importData.ToString());
-
+            var hackParser = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, List<PatientModel>>>(importData.ToString());
             _patientImporter.Import(hackParser["importData"]);
+           
 
             return StatusCode(200);
         }
 
         [HttpPost]
         [Route("caseupdatedata")]
-        public ActionResult ImportCaseUpdateData(CaseUpdate[] importData)
+        public ActionResult ImportCaseUpdateData(object importData)
         {
-            var hackParser = JsonSerializer.Deserialize<Dictionary<string, List<CaseUpdate>>>(importData.ToString());
+            var hackParser = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, List<CaseUpdateModel>>>(importData.ToString());
 
             _caseUpdateImporter.Import(hackParser["importData"]);
 

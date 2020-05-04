@@ -2,7 +2,7 @@ using System;
 
 namespace Models
 {
-    public class Patient: BaseModel
+    public class PatientModel: BaseModel
     {
         public string AdditionalInformation {get; set;}
         public string Admin1 {get; set;}
@@ -16,13 +16,13 @@ namespace Models
         public string Country {get; set;}
         public string NewCountry {get; set;} 
         public string DataModeratorInitials {get; set;} 
-        public DateTime HospitalAdmissionDate {get; set;}
-        public DateTime ConfirmationDate {get; set;}
-        public DateTime? DateDeadOrDischarge {get; set;}
-        public DateTime? DateOnsetSymptoms {get; set;}
+        public string HospitalAdmissionDate {get; set;}
+        public string ConfirmationDate {get; set;}
+        public string DateDeadOrDischarge {get; set;}
+        public string DateOnsetSymptoms {get; set;}
         public string GeoResolution {get; set;} 
-        public string Longtitude {get; set;}
-        public string Lattitude {get; set;}
+        public decimal Longtitude {get; set;}
+        public decimal Lattitude {get; set;}
         public bool LivesInWuhan {get; set;}
         public string Location {get; set;}
         public string NotesForDiscussion {get; set;}

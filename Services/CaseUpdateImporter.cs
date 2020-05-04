@@ -14,9 +14,9 @@ namespace Services
             _context = context;
         }
         
-        public void Import(List<CaseUpdate> caseUpdateImport)
+        public void Import(List<CaseUpdateModel> caseUpdateImport)
         {
-            foreach (CaseUpdate caseUpdate in caseUpdateImport) {
+            foreach (CaseUpdateModel caseUpdate in caseUpdateImport) {
                 _context.CaseUpdates.Add(caseUpdate);
             }
             _context.SaveChanges();

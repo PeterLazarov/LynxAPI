@@ -2,21 +2,21 @@ using System;
 
 namespace Models
 {
-    public class CaseUpdate: BaseModel
+    public class CaseUpdateModel: BaseModel
     {
         public string Link {get; set;}
         public string Country {get; set;}
         public int? CaseInCountry {get; set;}
-        public DateTime ReportingDate {get; set;}
-        public DateTime HospitalVisitDate {get; set;}
-        public DateTime SymptomOnset {get; set;}
-        public DateTime? ExposureStart {get; set;}
-        public DateTime? ExposureEnd {get; set;}
+        public string ReportingDate {get; set;}
+        public string HospitalVisitDate {get; set;}
+        public string SymptomOnset {get; set;}
+        public string ExposureStart {get; set;}
+        public string ExposureEnd {get; set;}
         public bool? IsOnsetApproximated {get; set;}
         public bool VisitedWuhan {get; set;}
         public bool FromWuhan {get; set;}
-        public bool Dead {get; set;}
-        public bool Recovered {get; set;}
+        public bool IsDead {get; set;}
+        public bool IsRecovered {get; set;}
         public string Summary {get; set;}
         public string Location {get; set;}
         public string Gender {get; set;}

@@ -6,6 +6,6 @@ namespace Services
 {
     public interface IPatientImporter
     {        
-        void Import(List<Patient> patientImport);
+        void Import(List<PatientModel> patientImport);
     }
 }

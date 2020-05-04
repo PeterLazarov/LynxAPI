@@ -13,30 +13,30 @@ namespace Controllers
     [ApiController]
     [EnableCors]
     [Produces("application/json")]
-    [Route("api/regioncasedata")]
-    public class RegionCaseDataController : ControllerBase
+    [Route("api/provincecasedata")]
+    public class ProvinceCaseDataController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public RegionCaseDataController(DataContext context)
+        public ProvinceCaseDataController(DataContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public ActionResult<List<RegionCaseDataModel>> Get([FromQuery] RegionCaseDataFilter filter)
+        public ActionResult<List<ProvinceCaseDataModel>> Get([FromQuery] RegionCaseDataFilter filter)
         {
-            return _context.RegionData.Where(x=> 
+            return _context.ProvinceData.Where(x=> 
                 (String.IsNullOrEmpty(filter.Province) || x.Province.ToUpper().Contains(filter.Province.ToUpper()))
                 && (String.IsNullOrEmpty(filter.Region) || x.Region.ToUpper().Contains(filter.Region.ToUpper())) 
-            ).OrderByDescending(x => x.SNo)
+            ).OrderBy(x => x.Province)
             .ToList();
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<RegionCaseDataModel> GetById(int id)
+        [HttpGet("/{id}")]
+        public ActionResult<ProvinceCaseDataModel> GetById(int id)
         {
-            return _context.RegionData.FirstOrDefault(c => c.Id == id);
+            return _context.ProvinceData.FirstOrDefault(c => c.Id == id);
         }
     }
 }

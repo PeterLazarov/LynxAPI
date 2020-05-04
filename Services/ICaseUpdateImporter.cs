@@ -6,6 +6,6 @@ namespace Services
 {
     public interface ICaseUpdateImporter
     {        
-        void Import(List<CaseUpdate> caseUpdateImport);
+        void Import(List<CaseUpdateModel> caseUpdateImport);
     }
 }

@@ -6,6 +6,6 @@ namespace Services
 {
     public interface IProvinceImporter
     {        
-        void Import(List<ProvinceCaseData> provinceImportData);
+        void Import(List<ProvinceCaseDataImportModel> provinceImportData);
     }
 }

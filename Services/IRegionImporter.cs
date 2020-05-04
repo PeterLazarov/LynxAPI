@@ -6,6 +6,6 @@ namespace Services
 {
     public interface IRegionImporter
     {        
-        void Import(List<RegionCaseData> regionImportData);
+        void Import(List<RegionCaseDataModel> regionImportData);
     }
 }
