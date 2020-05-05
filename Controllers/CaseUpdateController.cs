@@ -29,7 +29,7 @@ namespace Controllers
             return _context.CaseUpdates.Where(x=> 
                 (String.IsNullOrEmpty(filter.Country) || x.Country.ToUpper().Contains(filter.Country.ToUpper()))
                 && (String.IsNullOrEmpty(filter.Location) || x.Location.ToUpper().Contains(filter.Location.ToUpper()))
-            ).OrderBy(x => x.Country)
+            ).OrderBy(x => x.Country).ThenBy(x => x.CaseInCountry)
             .ToList();
         }
 

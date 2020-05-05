@@ -6,13 +6,13 @@ namespace Models
     {
         public string Country {get; set;}
         public string Location {get; set;}
-        public int? CaseInCountry {get; set;}
+        public string CaseInCountry {get; set;}
         public string ReportingDate {get; set;}
         public string HospitalVisitDate {get; set;}
         public string SymptomOnset {get; set;}
         public string ExposureStart {get; set;}
         public string ExposureEnd {get; set;}
-        public decimal? Age {get; set;}
+        public string Age {get; set;}
         public string Gender {get; set;}
         public bool? IsOnsetApproximated {get; set;}
         public bool VisitedWuhan {get; set;}

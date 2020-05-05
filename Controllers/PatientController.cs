@@ -24,11 +24,11 @@ namespace Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<PatientModel>> Get([FromQuery] RegionCaseDataFilter filter)
+        public ActionResult<List<PatientModel>> Get([FromQuery] PatientFilter filter)
         {
             return _context.Patients.Where(x=> 
-                (String.IsNullOrEmpty(filter.Province) || x.Province.ToUpper().Contains(filter.Province.ToUpper()))
-            ).OrderBy(x => x.Country)
+                (String.IsNullOrEmpty(filter.Country) || x.NewCountry.ToUpper().Contains(filter.Country.ToUpper()))
+            )
             .ToList();
         }
 

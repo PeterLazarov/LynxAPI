@@ -11,7 +11,8 @@ namespace Models
         public string AdminId {get; set;} 
         public string ChronicDiseases {get; set;}
         public string ChronicDiseaseBinary {get; set;} 
-        public int Age {get; set;}
+        public string Age {get; set;}
+        public string Sex {get; set;}
         public string City {get; set;}
         public string Country {get; set;}
         public string NewCountry {get; set;} 
@@ -21,8 +22,8 @@ namespace Models
         public string DateDeadOrDischarge {get; set;}
         public string DateOnsetSymptoms {get; set;}
         public string GeoResolution {get; set;} 
-        public decimal Longtitude {get; set;}
-        public decimal Lattitude {get; set;}
+        public string Longtitude {get; set;}
+        public string Lattitude {get; set;}
         public bool LivesInWuhan {get; set;}
         public string Location {get; set;}
         public string NotesForDiscussion {get; set;}
@@ -30,7 +31,6 @@ namespace Models
         public string Province {get; set;}
         public string ReportedMarketExposure {get; set;}
         public string SequenceAvailable {get; set;} 
-        public string Sex {get; set;}
         public string TravelHistoryDates {get; set;}
         public string TravelHistoryLocation {get; set;}
     }
