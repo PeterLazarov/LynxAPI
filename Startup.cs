@@ -58,11 +58,11 @@ namespace API
 
             app.UseRouting();
 
-            app.UseCors(options => {
-                options.AllowAnyOrigin()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
-            });
+            // app.UseCors(options => {
+            //     options.AllowAnyOrigin()
+            //             .AllowAnyHeader()
+            //             .AllowAnyMethod();
+            // });
 
             app.UseAuthentication();
 
