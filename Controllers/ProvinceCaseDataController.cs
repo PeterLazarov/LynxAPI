@@ -32,11 +32,5 @@ namespace Controllers
             ).OrderBy(x => x.Province)
             .ToList();
         }
-
-        [HttpGet("/{id}")]
-        public ActionResult<ProvinceCaseDataModel> GetById(int id)
-        {
-            return _context.ProvinceData.FirstOrDefault(c => c.Id == id);
-        }
     }
 }

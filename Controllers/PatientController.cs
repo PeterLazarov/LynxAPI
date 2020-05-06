@@ -31,11 +31,5 @@ namespace Controllers
             )
             .ToList();
         }
-
-        [HttpGet("/{id}")]
-        public ActionResult<PatientModel> GetById(int id)
-        {
-            return _context.Patients.FirstOrDefault(c => c.Id == id);
-        }
     }
 }
