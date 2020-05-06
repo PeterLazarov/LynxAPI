@@ -8,6 +8,7 @@ using Models;
 using Data;
 using System.Net.Http;
 using Microsoft.AspNetCore.Cors;
+using Newtonsoft.Json;
 
 namespace Controllers
 {
@@ -37,6 +38,7 @@ namespace Controllers
             var result = await userManager.CreateAsync(user, registerUser.password);
 
             int statusCode = 200;
+            string message = string.Empty;
             if (result.Succeeded) {
                 await signInManager.SignInAsync(user, isPersistent: false);
             }
@@ -44,8 +46,7 @@ namespace Controllers
                 statusCode = 403;
             }
 
-            //todo: improve the output
-            return StatusCode(statusCode);
+            return StatusCode(statusCode, JsonConvert.SerializeObject(result));
         }
          
         [HttpPost]
@@ -59,8 +60,26 @@ namespace Controllers
                 statusCode = 403;
             }
             
-            //todo: improve the output
-            return StatusCode(statusCode);
+            return StatusCode(statusCode, JsonConvert.SerializeObject(result));
+        }
+         
+        [HttpGet]
+        [Route("IsSignedIn")]
+        public async Task<ActionResult> IsUserSignedIn()
+        {
+            var user = await userManager.GetUserAsync(User);
+            // var a = signInManager.IsSignedIn(User);
+
+            return StatusCode(200, user);
+        }
+         
+        [HttpGet]
+        [Route("SignOut")]
+        public async Task<ActionResult> SignOut()
+        {
+            await signInManager.SignOutAsync();
+
+            return StatusCode(200);
         }
     }
 }
